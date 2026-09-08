@@ -45,11 +45,6 @@ export const STATUS_OPTIONS = [
   'Industry / other',
 ]
 
-export const LOCAL_OPTIONS = [
-  'Yes, I can attend in person',
-  'No, I cannot attend in person',
-]
-
 export const TEAM_OPTIONS = [
   'Need a team',
   'Already have a team',

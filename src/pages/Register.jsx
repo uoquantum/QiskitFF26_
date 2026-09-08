@@ -10,7 +10,6 @@ import {
   ROLES,
   DIETARY_OPTIONS,
   STATUS_OPTIONS,
-  LOCAL_OPTIONS,
   TEAM_OPTIONS,
   SKILL_LEVEL_OPTIONS,
   BACKGROUND_TOPICS,
@@ -38,7 +37,7 @@ const initialForm = {
   // participant
   status_type: STATUS_OPTIONS[0],
   program: '',
-  local_attendance: LOCAL_OPTIONS[0],
+  local_attendance: false,
   team: TEAM_OPTIONS[0],
   // volunteer
   volunteer_background: '',
@@ -231,13 +230,17 @@ export default function Register() {
                         </Field>
                       </div>
                       <div className="grid gap-6 sm:grid-cols-2">
-                        <Field label="Are you local and able to attend in person?">
-                          <select className={inputCls} value={form.local_attendance} onChange={update('local_attendance')}>
-                            {LOCAL_OPTIONS.map((o) => (
-                              <option key={o}>{o}</option>
-                            ))}
-                          </select>
-                        </Field>
+                        <div className="flex items-center">
+                          <label className="flex items-start gap-3 text-sm text-ink-muted cursor-pointer">
+                            <input
+                              type="checkbox"
+                              className="mt-0.5 h-4 w-4 rounded border-ink/20 bg-ink/5 accent-cyan-500"
+                              checked={form.local_attendance}
+                              onChange={update('local_attendance')}
+                            />
+                            Yes, I can attend in person
+                          </label>
+                        </div>
                         <Field label="Hackathon team status">
                           <select className={inputCls} value={form.team} onChange={update('team')}>
                             {TEAM_OPTIONS.map((o) => (
